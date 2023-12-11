@@ -89,9 +89,10 @@ def sample_clip(filename):
 
 
 
-api_id = 3702208
-api_hash = "3ee1acb7c7622166cf06bb38a19698a9"
-bot_token = "5030635324:AAEaM9t5WBQHUeUAfJJK4r39h5457YwuD1k"
+api_id = 11405252
+api_hash = "b1a1fc3dc52ccc91781f33522255a880"
+bot_token = "6326333011:AAHHvjzDx7zc8nKXzobh_dNRoS5yH7KTPmw"
+
 
 
 app = Client(
@@ -190,12 +191,12 @@ async def main():
             crtda = datetime.now(pytz.timezone("Asia/Kolkata")).strftime("%m/%d %H:%M %p")
             if up["ytdl"]:
                 time.sleep(2)
-                await app.edit_message_text(-1002097863599,3,text='Starting Bot')
+                await app.edit_message_text(-1002034630043,3,text='Starting Bot')
                 up["ytdl"] = False
                 time.sleep(2)
             #result = internet_speed_test()
-            #await app.send_photo(-1002097863599,result,caption=stats("Active",link,"Uploading..")
-            await app.edit_message_text(-1002097863599,3,text=stats("Active",link,"Uploading.."))
+            #await app.send_photo(-1002034630043,result,caption=stats("Active",link,"Uploading..")
+            await app.edit_message_text(-1002034630043,3,text=stats("Active",link,"Uploading.."))
 
             dl = Thread(target=ytdlpp, args=(link,))
             dl.start()
@@ -262,28 +263,28 @@ async def main():
                                         gof.upload(filename.replace('.mp4','.jpg'),clip_folder["id"])
 
                                         if len(imgs) >0:
-                                          pic = await app.send_media_group(-1001737315050,imgs)
+                                          pic = await app.send_media_group(-1002034630043,imgs)
                                           time.sleep(2)
                                           pic = pic[0]
                                         else:
                                            os.system(f'''vcsi """{filename}""" -g 3x3--metadata-position hidden -o """{filename.replace('.mp4','.jpeg')}""" ''')
-                                           pic = await app.send_photo(-1001737315050,photo=filename.replace('.mp4','.jpeg'))
+                                           pic = await app.send_photo(-1002034630043,photo=filename.replace('.mp4','.jpeg'))
                                            gof.upload(filename.replace('.mp4','.jpeg'),clip_folder["id"])
 
 
-                                        sample = await app.send_video(-1001737315050,video=sample_filename,caption=sample_filename.replace(".mp4",""),thumb=sample_filename.replace("mp4","png"),supports_streaming=True,duration=int(duration(sample_filename)[0]),progress=progress)
+                                        sample = await app.send_video(-1002034630043,video=sample_filename,caption=sample_filename.replace(".mp4",""),thumb=sample_filename.replace("mp4","png"),supports_streaming=True,duration=int(duration(sample_filename)[0]),progress=progress)
                                         time.sleep(2)
-                                        video = await app.send_video(-1001737315050,video=filename,caption=filename.replace(".mp4",""),thumb=filename.replace(".mp4",".jpg"),supports_streaming=True,duration=int(duration(filename)[0]),progress=progress)
+                                        video = await app.send_video(-1002034630043,video=filename,caption=filename.replace(".mp4",""),thumb=filename.replace(".mp4",".jpg"),supports_streaming=True,duration=int(duration(filename)[0]),progress=progress)
                                         gf = gof.upload(filename,folder["id"])
                                         
                 
-                                        await app.send_photo(-1001945634929,photo=filename.replace('.mp4','.png'),caption=cap(filename,pic.id,video.id,sample.id,gf['downloadPage']),parse_mode=enums.ParseMode.MARKDOWN,progress=progress)
+                                        await app.send_photo(-1002034630043,photo=filename.replace('.mp4','.png'),caption=cap(filename,pic.id,video.id,sample.id,gf['downloadPage']),parse_mode=enums.ParseMode.MARKDOWN,progress=progress)
                                         
 
 
                                         #await app.send_photo(-1001848025191, photo=filename.replace(".mp4",".png"))
                                         #sample_video = await app.send_video(-1001945634929, video=sample_filename,caption=sample_filename.replace(".mp4",""),thumb=filename.replace("mp4","jpg"))
-                                        #video = await app.send_video(-1001737315050,video=filename,caption=filename.replace(".mp4",""),thumb=filename.replace(".mp4",".jpg"))
+                                        #video = await app.send_video(-1002034630043,video=filename,caption=filename.replace(".mp4",""),thumb=filename.replace(".mp4",".jpg"))
 
 
                                         
@@ -309,19 +310,19 @@ async def main():
                                         txt = stats("Uploading",link,up[link.split("/")[-1]])
                                         oldtxt = " "
                                         if txt != oldtxt:
-                                            await app.edit_message_text(-1002097863599,3,text=txt)
+                                            await app.edit_message_text(-1002034630043,3,text=txt)
                                             oldtxt = txt
 
 
                                 except Exception as e:
                                         print(e)
-                                        await app.edit_message_text(-1002097863599,3,text=stats("Completed",link,up[link.split("/")[-1]],e))
+                                        await app.edit_message_text(-1002034630043,3,text=stats("Completed",link,up[link.split("/")[-1]],e))
                                  
                             
             #create_combined_pdf()
             #await app.send_document(-1001945634929, document="snaps.pdf")
             #os.system(f'''rclone --config './rclone.conf' move   'PH_Pics:/Pictures/Caps/new/'  ''')
-            await app.edit_message_text(-1002097863599,3,text=stats("Offline",link,up["Total"]))
+            await app.edit_message_text(-1002034630043,3,text=stats("Offline",link,up["Total"]))
                     
 print("bot up")
 app.run(main())
