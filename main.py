@@ -153,9 +153,9 @@ def stats(status,link,total,error="No Error"):
 
 def cap(title,pid,vid,svid,gf):
     text =  f'├  Title : {title}\n'\
-            f'├  [Screenshots](https://t.me/c/1737315050/{pid})\n'\
-            f'├  [Sample Video](https://t.me/c/1737315050/{svid})\n'\
-            f'├  [Video](https://t.me/c/1737315050/{vid})\n'\
+            f'├  [Screenshots](https://t.me/c/2034630043/{pid})\n'\
+            f'├  [Sample Video](https://t.me/c/2034630043/{svid})\n'\
+            f'├  [Video](https://t.me/c/2034630043/{vid})\n'\
             f'├  [GoFile]({gf})\n'\
             f'╰  Updated Time: {datetime.now(pytz.timezone("Asia/Kolkata")).strftime("%m/%d %H:%M %p")}\n\n'
     return text
